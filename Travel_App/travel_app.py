@@ -45,23 +45,23 @@ def show_free_map(city):
         return None
     
     def recommend_destinations(df, user_prefs):
-    """Filters destinations based on user preferences"""
-    filtered = df.copy()
+        """Filters destinations based on user preferences"""
+        filtered = df.copy()
     
     # Budget filter (1-4 scale)
-    if 'budget' in user_prefs:
-        filtered = filtered[filtered["Budget"] <= user_prefs["budget"]]
+        if 'budget' in user_prefs:
+            filtered = filtered[filtered["Budget"] <= user_prefs["budget"]]
     
     # Season filter
-    if 'season' in user_prefs and user_prefs["season"] != "Any":
-        filtered = filtered[filtered["Best_Season"] == user_prefs["season"]]
+        if 'season' in user_prefs and user_prefs["season"] != "Any":
+            filtered = filtered[filtered["Best_Season"] == user_prefs["season"]]
     
     # Destination type filter
-    if 'type' in user_prefs and user_prefs["type"] != "Any":
-        filtered = filtered[filtered["Type"] == user_prefs["type"]]
+        if 'type' in user_prefs and user_prefs["type"] != "Any":
+            filtered = filtered[filtered["Type"] == user_prefs["type"]]
     
     # Sort by budget (cheapest first)
-    return filtered.sort_values("Budget")
+        return filtered.sort_values("Budget")
 
 
 # Test the function
